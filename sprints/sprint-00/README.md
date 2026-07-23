@@ -29,3 +29,17 @@ git remote add origin URL
 git remote -v
 git push -u origin main
 git log --oneline
+'''
+
+## Что я понял
+
+- Git хранит историю изменений проекта.
+- Commit фиксирует выбранные изменения в локальной истории.
+- GitHub хранит удалённую копию репозитория.
+- Push отправляет локальные коммиты на GitHub.
+- `git status` показывает состояние проекта.
+- `git diff` показывает, что именно изменилось.
+
+## Статус
+
+Sprint completed
