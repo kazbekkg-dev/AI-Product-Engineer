@@ -10,8 +10,7 @@ startButton.addEventListener("click", function () {
         startButton.textContent = "Начать путь";
         description.textContent =
             "Я учусь проектировать и создавать цифровые продукты с помощью программирования и AI-инструментов.";
-
-            statusText.textContent = "Статус: путь не начат";
+         statusText.textContent = "Статус: путь не начат";
 
         card.classList.remove("is-started");
         isStarted = false;
@@ -19,8 +18,7 @@ startButton.addEventListener("click", function () {
         startButton.textContent = "Путь начался!";
         description.textContent =
             "Первый интерактивный проект запущен.";
-
-            statusText.textContent = "Статус: путь начат";
+         statusText.textContent = "Статус: путь начат";
 
         card.classList.add("is-started");
         isStarted = true;
