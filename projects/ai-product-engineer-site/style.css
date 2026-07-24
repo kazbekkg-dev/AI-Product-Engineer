@@ -40,3 +40,17 @@ button {
     border-radius: 12px;
     cursor: pointer;
 }
+main,
+button {
+    transition: 0.3s ease;
+}
+
+main.is-started {
+    background: #243b53;
+    transform: translateY(-6px);
+}
+
+main.is-started button {
+    background: #22c55e;
+    color: #ffffff;
+}
