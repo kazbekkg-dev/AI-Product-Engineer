@@ -54,3 +54,11 @@ main.is-started button {
     background: #22c55e;
     color: #ffffff;
 }
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    scale: 0.98;
+}
