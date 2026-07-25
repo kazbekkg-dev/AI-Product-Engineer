@@ -9,9 +9,38 @@ let isStarted = localStorage.getItem("journeyStarted") === "true";
 
 const student = {
     name: "Каз",
-    course: "AI Product Engineer",
-    progress: 20
+    course: "AI Product Engineer"
 };
+const lessons = [
+    {
+        title: "Git и GitHub",
+        completed: true
+    },
+    {
+        title: "HTML основы",
+        completed: true
+    },
+    {
+        title: "CSS основы",
+        completed: true
+    },
+    {
+        title: "JavaScript основы",
+        completed: false
+    }
+];
+function calculateProgress() {
+
+    const completedLessons = lessons.filter(
+        lesson => lesson.completed
+    ).length;
+
+    const totalLessons = lessons.length;
+
+    return Math.round(
+        (completedLessons / totalLessons) * 100
+    );
+}
 
 
 function updateInterface() {
@@ -30,9 +59,13 @@ function updateInterface() {
 
         card.classList.remove("is-started");
     }
+    const progress = calculateProgress();
+
     studentInfo.textContent =
-    `Ученик: ${student.name} | Курс: ${student.course} | Прогресс: ${student.progress}%`;
-    progressBar.style.width = student.progress + "%";
+            `Ученик: ${student.name} | Курс: ${student.course} | Прогресс: ${progress}%`;
+    
+    progressBar.style.width =
+            progress + "%"; 
 }
 
 
@@ -44,4 +77,5 @@ startButton.addEventListener("click", function () {
     );
     updateInterface();
 });
+
 updateInterface();
