@@ -3,7 +3,7 @@ const description = document.querySelector("#description");
 const card = document.querySelector("main");
 const statusText = document.querySelector("#status");
 
-let isStarted = false;
+let isStarted = localStorage.getItem("journeyStarted") === "true";
 
 
 function updateInterface() {
@@ -27,5 +27,10 @@ function updateInterface() {
 
 startButton.addEventListener("click", function () {
     isStarted = !isStarted;
+    localStorage.setItem(
+        "journeyStarted",
+        isStarted
+    );
     updateInterface();
 });
+updateInterface();
