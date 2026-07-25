@@ -2,8 +2,16 @@ const startButton = document.querySelector("#start-button");
 const description = document.querySelector("#description");
 const card = document.querySelector("main");
 const statusText = document.querySelector("#status");
+const progressBar = document.querySelector("#progress-bar");
+const studentInfo = document.querySelector("#student-info");
 
 let isStarted = localStorage.getItem("journeyStarted") === "true";
+
+const student = {
+    name: "Каз",
+    course: "AI Product Engineer",
+    progress: 20
+};
 
 
 function updateInterface() {
@@ -22,6 +30,9 @@ function updateInterface() {
 
         card.classList.remove("is-started");
     }
+    studentInfo.textContent =
+    `Ученик: ${student.name} | Курс: ${student.course} | Прогресс: ${student.progress}%`;
+    progressBar.style.width = student.progress + "%";
 }
 
 
