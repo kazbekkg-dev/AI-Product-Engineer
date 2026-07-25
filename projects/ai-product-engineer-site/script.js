@@ -4,6 +4,7 @@ const card = document.querySelector("main");
 const statusText = document.querySelector("#status");
 const progressBar = document.querySelector("#progress-bar");
 const studentInfo = document.querySelector("#student-info");
+const lessonsList = document.querySelector("#lessons-list");
 
 let isStarted = localStorage.getItem("journeyStarted") === "true";
 
@@ -41,6 +42,29 @@ function calculateProgress() {
         (completedLessons / totalLessons) * 100
     );
 }
+function renderLessons() {
+    
+    console.log("renderLessons работает");
+
+    lessonsList.innerHTML = "";
+
+    lessons.forEach(function (lesson) {
+
+        const lessonElement = document.createElement("p");
+
+        if (lesson.completed) {
+            lessonElement.textContent =
+                "✅ " + lesson.title;
+        } else {
+            lessonElement.textContent =
+                "⬜ " + lesson.title;
+        }
+
+        lessonsList.appendChild(lessonElement);
+
+    });
+
+}
 
 
 function updateInterface() {
@@ -66,6 +90,8 @@ function updateInterface() {
     
     progressBar.style.width =
             progress + "%"; 
+
+    renderLessons();
 }
 
 
