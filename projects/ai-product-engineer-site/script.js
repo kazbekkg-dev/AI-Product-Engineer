@@ -1,4 +1,6 @@
-const startButton = document.querySelector("#start-button");
+// 1. ЭЛЕМЕНТЫ HTML
+
+const startButton = document.querySelector("#start-button"); 
 const description = document.querySelector("#description");
 const card = document.querySelector("main");
 const statusText = document.querySelector("#status");
@@ -6,7 +8,11 @@ const progressBar = document.querySelector("#progress-bar");
 const studentInfo = document.querySelector("#student-info");
 const lessonsList = document.querySelector("#lessons-list");
 
+// 2. СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+
 let isStarted = localStorage.getItem("journeyStarted") === "true";
+
+// 3. ДАННЫЕ
 
 const student = {
     name: "Каз",
@@ -30,6 +36,9 @@ const lessons = [
         completed: false
     }
 ];
+
+// 4. ФУНКЦИИ РАБОТЫ С ДАННЫМИ
+
 function calculateProgress() {
 
     const completedLessons = lessons.filter(
@@ -42,10 +51,11 @@ function calculateProgress() {
         (completedLessons / totalLessons) * 100
     );
 }
+
+// 5. ФУНКЦИИ ИНТЕРФЕЙСА
+
 function renderLessons() {
     
-    console.log("renderLessons работает");
-
     lessonsList.innerHTML = "";
 
     lessons.forEach(function (lesson) {
@@ -65,7 +75,6 @@ function renderLessons() {
     });
 
 }
-
 
 function updateInterface() {
     if (isStarted) {
@@ -94,6 +103,7 @@ function updateInterface() {
     renderLessons();
 }
 
+// 6. СОБЫТИЯ
 
 startButton.addEventListener("click", function () {
     isStarted = !isStarted;
@@ -103,5 +113,7 @@ startButton.addEventListener("click", function () {
     );
     updateInterface();
 });
+
+// 7. ПЕРВЫЙ ЗАПУСК
 
 updateInterface();
