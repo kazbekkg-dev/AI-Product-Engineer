@@ -60,7 +60,8 @@ function renderLessons() {
 
     lessons.forEach(function (lesson) {
 
-        const lessonElement = document.createElement("p");
+        const lessonElement = document.createElement("div");
+        lessonElement.classList.add("lesson");
 
         if (lesson.completed) {
             lessonElement.textContent =
@@ -68,6 +69,19 @@ function renderLessons() {
         } else {
             lessonElement.textContent =
                 "⬜ " + lesson.title;
+        
+            const completeButton =
+                document.createElement("button");
+        
+            completeButton.textContent =
+                "Завершить";
+
+                completeButton.addEventListener("click", function () {
+                    lesson.completed = true;
+                    updateInterface();
+                });
+                
+            lessonElement.appendChild(completeButton);
         }
 
         lessonsList.appendChild(lessonElement);
