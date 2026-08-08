@@ -18,7 +18,13 @@ const student = {
     name: "Каз",
     course: "AI Product Engineer"
 };
-const lessons = [
+
+const savedLessons = localStorage.getItem("lessons");
+
+const lessons = savedLessons
+    ? JSON.parse(savedLessons)
+    : [
+
     {
         title: "Git и GitHub",
         completed: true
@@ -38,6 +44,13 @@ const lessons = [
 ];
 
 // 4. ФУНКЦИИ РАБОТЫ С ДАННЫМИ
+
+function saveLessons() {
+    localStorage.setItem(
+        "lessons",
+        JSON.stringify(lessons)
+    );
+}
 
 function calculateProgress() {
 
@@ -78,6 +91,7 @@ function renderLessons() {
 
                 completeButton.addEventListener("click", function () {
                     lesson.completed = true;
+                    saveLessons();
                     updateInterface();
                 });
                 
